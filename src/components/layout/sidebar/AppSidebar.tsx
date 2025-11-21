@@ -1,5 +1,5 @@
 import React from 'react'
-import { SidebarItem, SidebarLabel } from '@/components/ui/sidebar'
+import { SidebarItem, SidebarLabel, SidebarTree } from '@/components/ui/sidebar'
 import { LuLayoutDashboard, LuFolderArchive } from 'react-icons/lu'
 
 const AppSidebar = () => {
@@ -11,9 +11,23 @@ const AppSidebar = () => {
           <span className='text-neutral-700 font-bold'>POS</span>
         </div>
         <div className='flex-1 w-full flex flex-col gap-1'>
-          <SidebarItem text='Dashboard' icon={<LuLayoutDashboard size={16} />} />
+          <SidebarItem to='/dashboard' text='Dashboard' icon={<LuLayoutDashboard size={16} />} />
           <SidebarLabel text='Menu' />
-          <SidebarItem text='Master' icon={<LuFolderArchive size={16} />} isActive/>
+          <SidebarTree
+            text='Master'
+            icon={<LuFolderArchive size={16} />}
+            items={[
+              {
+                text: 'Satuan',
+                to: '#'
+              },
+              {
+                text: 'Bahan Baku',
+                to: '#'
+              }
+            ]}
+          />
+          <SidebarItem to='/master' text='Purchase' icon={<LuFolderArchive size={16} />} isActive />
         </div>
       </div>
     </aside>
