@@ -1,7 +1,9 @@
+import { PageTitle } from '@/components/ui/typography'
+
 export default function DashboardPage() {
     return (
-        <section className="text-lg">
-            Dashboard Page
+        <section>
+            <PageTitle title='Dashboard' subTitle='Welcome to dashboard' />
         </section>
     )
 }

@@ -31,15 +31,68 @@ const SidebarTree: React.FC<IProps> = ({
     return (
         <div className='w-full relative'>
             <div className='w-full px-3'>
+                <div className={twMerge(
+                    'group sidebar-tree',
+                    isActive ? '' : ''
+                )}
+                    onClick={handleOpen}
+                >
+                    <div className='flex items-center gap-2'>
+                        {icon ?? <LuCircle size={16} />}
+                        <span>{text}</span>
+                    </div>
+                    <LuChevronRight
+                        size={16}
+                        className={twMerge(
+                            'transition-transform duration-300 ease-in-out',
+                            open && 'rotate-90'
+                        )}
+                    />
+                </div>
+            </div>
+            <div
+                ref={collapsibleRef}
+                style={{
+                    height: open ? collapsibleRef?.current?.scrollHeight : 0
+                }}
+                className={twMerge(
+                    'w-full px-3 opacity-0 transition-all duration-300 ease-in-out',
+                    open && `opacity-100`
+                )}>
+                <div className='w-full ps-5'>
+                    <div className='w-full ps-1.5 flex flex-col gap-0.5 border-l border-gray-300'>
+                        {items.map((v, k) => {
+                            return <Link
+                                key={k}
+                                to={v.to || '#'}
+                                className='px-2 py-1 w-full rounded-sm text-sm text-neutral-700 border border-transparent hover:bg-gray-900/5 hover:border-gray-300 hover:text-neutral-900 transition-all duration-300 ease-in-out'
+                            >
+                                {v.text}
+                            </Link>
+                        })}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    )
+}
+
+export default SidebarTree
+
+
+// with before element
+{/* <div className='w-full relative'>
+            <div className='w-full px-3'>
                 <div className={
                     twMerge(`w-full flex items-center justify-between text-sm py-2 px-3 relative cursor-pointer rounded-md
                     text-neutral-700 bg-white
-                    hover:text-green-500
+                    hover:text-neutral-900
                     font-semibold
                     before:content-['']
                     before:absolute
                     before:inset-0
-                    before:bg-green-500/10
+                    before:bg-gray-900/5
                     before:origin-left
                     before:scale-x-0
                     before:transition-transform
@@ -78,12 +131,12 @@ const SidebarTree: React.FC<IProps> = ({
                     open && `opacity-100`
                 )}>
                 <div className='w-full ps-5'>
-                    <div className='w-full ps-1.5 flex flex-col gap-0.5 border-l border-neutral-300'>
+                    <div className='w-full ps-1.5 flex flex-col gap-0.5 border-l border-gray-300'>
                         {items.map((v, k) => {
                             return <Link
                                 key={k}
                                 to={v.to || '#'}
-                                className='px-2 py-1 w-full rounded-sm text-sm text-neutral-700 hover:bg-green-500/20 hover:text-green-500 transition-colors duration-300 ease-in-out'
+                                className='px-2 py-1 w-full rounded-sm text-sm text-neutral-700 border border-transparent hover:bg-gray-900/5 hover:border-gray-300 hover:text-neutral-900 transition-all duration-300 ease-in-out'
                             >
                                 {v.text}
                             </Link>
@@ -92,8 +145,4 @@ const SidebarTree: React.FC<IProps> = ({
                 </div>
 
             </div>
-        </div>
-    )
-}
-
-export default SidebarTree
+        </div> */}

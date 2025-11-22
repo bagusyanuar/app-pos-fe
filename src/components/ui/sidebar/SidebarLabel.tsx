@@ -8,7 +8,7 @@ const SidebarLabel: React.FC<IProps> = ({
     text = 'Label'
 }) => {
     return (
-        <div className='w-full text-xs px-6 text-neutral-700/70 mb-1'>{text}</div>
+        <div className='w-full text-xs px-6 text-neutral-700/80 my-1'>{text}</div>
     )
 }
 

@@ -8,7 +8,7 @@ export default function AppLayout() {
         <main className='w-full h-dvh bg-neutral-100'>
             <AppSidebar />
             <AppNavbar title='Overview' />
-            <section className='ps-64 pt-[calc(--spacing(14)+(--spacing(6)))]'>
+            <section className='ps-64 pe-3 pt-[calc(--spacing(14)+(--spacing(6)))]'>
                 <Outlet />
             </section>
             <ToastContainer />

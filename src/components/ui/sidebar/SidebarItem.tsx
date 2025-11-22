@@ -19,6 +19,24 @@ const SidebarItem: React.FC<IProps> = ({
     return (
         <div className='w-full relative'>
             <div className='w-full px-3'>
+                <Link to={to} className={twMerge(
+                    'group sidebar-menu',
+                    isActive ? '' : ''
+                )}>
+                    {icon ?? <LuCircle size={16} />}
+                    <span>{text}</span>
+                </Link>
+            </div>
+        </div>
+    )
+}
+
+export default SidebarItem
+
+// with before element
+
+{/* <div className='w-full relative'>
+            <div className='w-full px-3'>
                 <Link to={to} className={
                     twMerge(`w-full flex items-center gap-2 text-sm py-2 px-3 relative cursor-pointer rounded-md
                     text-neutral-700 bg-white
@@ -46,8 +64,4 @@ const SidebarItem: React.FC<IProps> = ({
                     <span>{text}</span>
                 </Link>
             </div>
-        </div>
-    )
-}
-
-export default SidebarItem
+        </div> */}
