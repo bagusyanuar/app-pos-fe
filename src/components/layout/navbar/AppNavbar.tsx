@@ -10,7 +10,7 @@ const AppNavbar: React.FC<IProps> = ({
 }) => {
     return (
         <div className='fixed top-0 left-0 w-full py-3 ps-64 pe-3'>
-            <nav className='w-full h-14 bg-white rounded-xl shadow-xl flex items-center justify-between px-3'>
+            <nav className='w-full h-14 bg-white rounded-lg border border-gray-300 drop-shadow-md flex items-center justify-between px-3'>
                 <div className='text-neutral-700 text-md font-semibold'>{title}</div>
                 <div className='flex items-center gap-1.5'>
                     <div className='w-8 h-8 rounded-lg bg-gray-100 hover:bg-gray-200 cursor-pointer hover:text-neutral-700 flex items-center justify-center text-neutral-500 transition-colors duration-300 ease-in-out'>

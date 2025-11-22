@@ -20,7 +20,7 @@ const SidebarItem: React.FC<IProps> = ({
         <div className='w-full relative'>
             <div className='w-full px-3'>
                 <Link to={to} className={twMerge(
-                    'group sidebar-menu',
+                    'group sidebar-menu focus:ring-0 focus:outline-none',
                     isActive ? '' : ''
                 )}>
                     {icon ?? <LuCircle size={16} />}

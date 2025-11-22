@@ -65,7 +65,7 @@ const SidebarTree: React.FC<IProps> = ({
                             return <Link
                                 key={k}
                                 to={v.to || '#'}
-                                className='px-2 py-1 w-full rounded-sm text-sm text-neutral-700 border border-transparent hover:bg-gray-900/5 hover:border-gray-300 hover:text-neutral-900 transition-all duration-300 ease-in-out'
+                                className='px-2 py-1 w-full rounded-sm text-sm text-neutral-700 border border-transparent hover:bg-gray-900/5 hover:border-gray-300 hover:text-neutral-900 transition-all duration-300 ease-in-out focus:ring-0 focus:outline-none'
                             >
                                 {v.text}
                             </Link>

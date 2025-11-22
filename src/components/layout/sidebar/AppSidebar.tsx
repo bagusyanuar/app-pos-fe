@@ -15,7 +15,7 @@ import { GrGroup } from 'react-icons/gr'
 const AppSidebar = () => {
   return (
     <aside className='w-64 h-dvh fixed z-50 p-3'>
-      <div className='w-full h-full flex flex-col bg-white rounded-xl shadow-xl'>
+      <div className='w-full h-full flex flex-col bg-white rounded-lg py-3 border border-gray-300 drop-shadow-md'>
         <div className='w-full h-16 px-6 flex items-center gap-1.5'>
           <img src='/static/images/brand-logo.png' className='h-8 w-fit' />
           <span className='text-neutral-700 font-bold'>POS</span>
@@ -85,6 +85,9 @@ const AppSidebar = () => {
           <SidebarLabel text='Account' />
           <SidebarItem to='/master' text='Pengguna' icon={<LuUser size={16} />} />
           <SidebarItem to='/master' text='Hak Akses' icon={<LuShield size={16} />} />
+        </div>
+        <div className='w-full px-3 mt-3'>
+          <div className='w-full h-24 border border-gray-300 rounded-md'></div>
         </div>
       </div>
     </aside>
