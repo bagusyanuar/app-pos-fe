@@ -1,8 +1,39 @@
 import { PageTitle } from '@/components/ui/typography'
 import { Button } from '@/components/ui/button'
-import { LuSettings2 } from 'react-icons/lu'
+import { Table, TableFilter, type TColumn } from '@/components/ui/table'
+import { LuCirclePlus } from 'react-icons/lu'
 
+type TModel = {
+    id: string
+    name: string
+}
 export default function UnitPage() {
+
+    const columns: TColumn<TModel>[] = [
+        {
+            cell: (row) => row.id,
+            text: '#',
+            align: 'justify-center',
+            width: 'w-20'
+        },
+        {
+            cell: (row) => row.name,
+            text: 'Name',
+            align: 'justify-start',
+        }
+    ]
+
+    const data: TModel[] = [
+        {
+            id: '1',
+            name: 'coba'
+        },
+        {
+            id: '2',
+            name: 'oke'
+        }
+    ]
+
     return (
         <section>
             <PageTitle
@@ -10,18 +41,20 @@ export default function UnitPage() {
                 subTitle='Halaman ini digunakan untuk mengelola daftar satuan barang yang tersedia'
             />
             <div className='w-full bg-white p-3 rounded-lg border border-gray-300 drop-shadow-md'>
-                <div className='flex items-center justify-between'>
-                    <p className='text-neutral-700 font-semibold text-md'>Data Satuan</p>
+                <div className='flex items-center justify-between mb-3'>
+                    <p className='text-neutral-700 font-semibold text-sm'>Data Satuan</p>
                     <div className='flex items-center gap-1.5'>
-                        <div className='px-2.5 py-1.5 text-xs text-neutral-700 flex items-center justify-center gap-1.5 rounded-md border border-gray-400 cursor-pointer hover:bg-gray-900/10'>
-                            <LuSettings2 size={14} />
-                            <span>filter</span>
-                        </div>
-                        <Button className='w-fit px-2.5 py-1.5 text-xs border border-green-500'>
-                            <span>New</span>
+                        <TableFilter />
+                        <Button className='px-2.5 py-1.5 text-xs gap-1'>
+                            <LuCirclePlus size={14} />
+                            <span>Create</span>
                         </Button>
                     </div>
                 </div>
+                <Table
+                    columns={columns}
+                    data={data}
+                />
             </div>
         </section>
     );
