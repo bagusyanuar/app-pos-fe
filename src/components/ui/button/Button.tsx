@@ -7,6 +7,8 @@ interface IProps {
     onClick?: () => void
     disabled?: boolean
     onProcess?: boolean
+    size?: 'small' | 'normal' | 'large'
+    variant?: 'fill' | 'outline' | 'outline-neutral'
 }
 
 const Button: React.FC<IProps> = ({
@@ -14,12 +16,17 @@ const Button: React.FC<IProps> = ({
     className = '',
     onClick = () => { },
     disabled = false,
-    onProcess = false
+    onProcess = false,
+    size = 'normal',
+    variant = 'fill'
 }) => {
     return (
         <button
             className={twMerge(
-                'px-3 py-2.5 border border-green-500 flex items-center justify-center text-sm text-white cursor-pointer disabled:cursor-default rounded-md bg-green-500 hover:bg-green-700 hover:border-green-700 transition-colors duration-300 ease-in-out',
+                'button',
+                variant,
+                size,
+                // 'px-3 py-2.5 border border-green-500 flex items-center justify-center text-sm text-white cursor-pointer disabled:cursor-default rounded-md bg-green-500 hover:bg-green-700 hover:border-green-700 transition-colors duration-300 ease-in-out',
                 disabled && 'bg-gray-300 hover:bg-gray-300',
                 onProcess && 'bg-green-700 hover:bg-green-700 cursor-default hover:border-green-700',
                 className

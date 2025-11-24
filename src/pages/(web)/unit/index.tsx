@@ -1,5 +1,6 @@
-import { PageTitle } from '@/components/ui/typography'
+import { PageTitle, CardTitle } from '@/components/ui/typography'
 import { Button } from '@/components/ui/button'
+import { Card, FlexBox } from '@/components/ui/container'
 import { Table, TableFilter, TableSearch, type TColumn } from '@/components/ui/table'
 import { LuCirclePlus } from 'react-icons/lu'
 
@@ -43,25 +44,27 @@ export default function UnitPage() {
                 title='Satuan'
                 subTitle='Halaman ini digunakan untuk mengelola daftar satuan barang yang tersedia'
             />
-            <div className='w-full bg-white p-3 rounded-lg border border-gray-300 drop-shadow-md'>
-                <div className='flex items-center justify-between mb-3'>
-                    <p className='text-neutral-700 font-semibold text-sm'>Data Satuan</p>
+            <Card>
+                <FlexBox className='justify-between mb-3'>
+                    <CardTitle text='Data Satuan' />
                     <div className='flex items-center gap-1.5'>
                         <TableSearch />
-                        <TableFilter />
-                        <Button className='px-2.5 py-1.5 text-xs gap-1'>
+                        <TableFilter>
+                            <div className='w-46'></div>
+                        </TableFilter>
+                        <Button>
                             <LuCirclePlus size={14} />
                             <span>Create</span>
                         </Button>
                     </div>
-                </div>
+                </FlexBox>
                 <Table
                     columns={columns}
                     data={data}
-                    onSort={(key) => {console.log(key);}}
-                    onPageSizeChange={(size) => {console.log(size)}}
+                    onSort={(key) => { console.log(key); }}
+                    onPageSizeChange={(size) => { console.log(size) }}
                 />
-            </div>
+            </Card>
         </section>
     );
 }
