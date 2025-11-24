@@ -48,7 +48,7 @@ const Table = <T,>({
             className
         )}>
             <div className={twMerge(
-                'w-full overflow-x-auto rounded-md border border-gray-400 mb-1',
+                'w-full overflow-x-auto rounded-md border border-gray-400 mb-1.5',
                 containerClassName
             )}>
                 <table className={twMerge(

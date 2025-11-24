@@ -51,7 +51,7 @@ const TableRows = <T,>({
                                     <tr
                                         key={dataKey}
                                         className={twMerge(
-                                            'border-b border-gray-400 last:border-0 text-xs',
+                                            'border-b border-gray-400 last:border-0 text-sm',
                                             className
                                         )}
                                     >

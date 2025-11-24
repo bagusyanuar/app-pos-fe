@@ -30,7 +30,7 @@
 
   /* button varian */
   .button.fill {
-    @apply bg-green-500 text-white border border-green-500;
+    @apply bg-green-500 text-white border border-green-500 disabled:bg-green-700 disabled:border-green-700 disabled:cursor-default;
   }
 
   .button.fill:hover {
@@ -46,11 +46,15 @@
   }
 
   .button.outline-neutral {
-    @apply bg-white text-neutral-700 border border-gray-400
+    @apply bg-white text-neutral-700 border border-gray-400;
   }
 
   .button.outline-neutral:hover {
-    @apply bg-gray-900/10
+    @apply bg-gray-900/10;
+  }
+
+  .button.outline-neutral:disabled {
+    @apply cursor-default border-gray-300 text-neutral-700/40 hover:bg-white;
   }
 
   /* button size */

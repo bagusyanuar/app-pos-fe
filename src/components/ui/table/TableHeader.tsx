@@ -18,7 +18,7 @@ const TableHeader = <T,>({
     return (
         <thead>
             <tr className={twMerge(
-                'rounded-md bg-gray-100 border-b border-gray-400 text-xs text-neutral-700',
+                'rounded-md bg-gray-100 border-b border-gray-400 text-sm text-neutral-700',
                 className
             )}>
                 {
@@ -41,7 +41,7 @@ const TableHeader = <T,>({
                                     {header.text}
                                     {
                                         header.sortable && <LuArrowDownUp
-                                            size={12}
+                                            size={10}
                                             className={twMerge(
                                                 'ms-1.5 cursor-pointer',
                                                 isProcessing && 'pointer-events-none'

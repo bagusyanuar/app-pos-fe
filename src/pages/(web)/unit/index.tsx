@@ -1,14 +1,18 @@
 import { PageTitle, CardTitle } from '@/components/ui/typography'
 import { Button } from '@/components/ui/button'
 import { Card, FlexBox } from '@/components/ui/container'
-import { Table, TableFilter, TableSearch, type TColumn } from '@/components/ui/table'
+import { Table, TableSearch, type TColumn } from '@/components/ui/table'
 import { LuCirclePlus } from 'react-icons/lu'
+import { useCallback, useState } from 'react'
+import { ModalForm } from '@/components/ui/modal'
 
 type TModel = {
     id: string
     name: string
 }
 export default function UnitPage() {
+
+    const [modalOpen, setModalOpen] = useState<boolean>(false)
 
     const columns: TColumn<TModel>[] = [
         {
@@ -38,6 +42,10 @@ export default function UnitPage() {
         }
     ]
 
+    const handleSearch = useCallback((param: string) => {
+        console.log('search ' + param);
+    }, [])
+
     return (
         <section>
             <PageTitle
@@ -48,11 +56,13 @@ export default function UnitPage() {
                 <FlexBox className='justify-between mb-3'>
                     <CardTitle text='Data Satuan' />
                     <div className='flex items-center gap-1.5'>
-                        <TableSearch />
-                        <TableFilter>
-                            <div className='w-46'></div>
-                        </TableFilter>
-                        <Button>
+                        <TableSearch
+                            onSearch={handleSearch}
+                            debounceTime={1500}
+                        />
+                        <Button
+                            onClick={() => setModalOpen(true)}
+                        >
                             <LuCirclePlus size={14} />
                             <span>Create</span>
                         </Button>
@@ -65,6 +75,12 @@ export default function UnitPage() {
                     onPageSizeChange={(size) => { console.log(size) }}
                 />
             </Card>
+            <ModalForm
+                show={modalOpen}
+                onClose={() => setModalOpen(false)}
+                onSubmit={() => console.log('submitted')}
+                onProcess
+            />
         </section>
     );
 }
